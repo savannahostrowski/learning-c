@@ -1,8 +1,11 @@
+#include <stdbool.h>
+#include <stdio.h>
+
 bool all_unique(const char* str) {
 	int is_unique[256] = {0};
 	for (int i = 0; str[i] != '\0'; ++i) {
 		char current = str[i];
-		if (is_unique[str[i] == 0) {
+		if (is_unique[str[i]] == 0) {
 			is_unique[str[i]] = str[i];
 		} else {
 			return false;
@@ -11,3 +14,7 @@ bool all_unique(const char* str) {
 	return true;
 }
 
+int main() {
+	const char* word = "savannah";
+	printf("%d\n", all_unique(word));
+}
